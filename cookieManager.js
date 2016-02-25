@@ -77,13 +77,13 @@ function cookieManager() {
         return output;
     }
     //sets methods
-    this.enabled = cookiesEnabled;
-    this.set = setCookie;
-    this.get = getCookie;
-    this.getAll = getAllCookies;
-    this.has = hasCookie;
-    this.delete = deleteCookie;
-    this.deleteAll = deleteAllCookies;
+    this["enabled"] = cookiesEnabled;
+    this["set"] = setCookie;
+    this["get"] = getCookie;
+    this["getAll"] = getAllCookies;
+    this["has"] = hasCookie;
+    this["delete"] = deleteCookie;
+    this["deleteAll"] = deleteAllCookies;
     //returns cookieManager object
     return this;
 }
