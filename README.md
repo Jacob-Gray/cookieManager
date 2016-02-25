@@ -65,7 +65,7 @@ cookies.deleteAll("*");
 Has cookie:
 ```javascript
 var cookies = cookieManager();
-if(cookies.has("myCookie") alert("We found the cookie!");
+if(cookies.has("myCookie")) alert("We found the cookie!");
 ```
 Cookies enabled:
 ```javascript
