@@ -76,3 +76,14 @@ cookies.enabled(function(){
 if(cookies.enabled()) ;//cookies are enabled
 else ;//cookies are not enabled
 ```
+Set cookie with custom path(Note that if you set a cookie with a custom path, you won't be able to get it's value unless you are at the path or one of it's children):
+```javascript
+var cookies = cookieManager();
+cookies.set("test","custom path!","","/customPath");
+```
+Delete cookie with custom path:
+```javascript
+var cookies = cookieManager();
+cookies.delete("test","/customPath");
+```
+`deleteAll()` will not delete custom path cookies.
