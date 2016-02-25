@@ -29,3 +29,37 @@ There are 7 different methods in cookieManager.
 | `delete()` 	| Deletes a cookie 	| Name 	| Can be chained. If name is `*` will delete all. 	|
 | `deleteAll()` 	| Deletes all cookies. 	|  	| Is the same as `delete("*")` 	|
 | `enabled()` 	| Checks if cookies are enabled 	| Function 	| Returns `true/false`. If a function is inputted, it runs if true. 	|
+
+#Example:
+Set and get the value of a cookie:
+```
+var cookies = cookieManager();
+cookies.set("opinion","This is cool!");
+var results = cookies.get("opinion");
+```
+Update cookie:
+```
+var cookies = cookieManager();
+cookies.set("opinion","This is cool!");
+var results1 = cookies.get("opinion");
+cookies.set("opinion","Even cooler!");
+var results2 = cookies.get("opinion");
+```
+Get all cookies:
+```
+var cookies = cookieManager();
+var results1 = cookies.get("*");
+var results2 = cookies.getAll();
+```
+Delete cookie:
+```
+var cookies = cookieManager();
+var results1 = cookies.delete("myCookie");
+```
+Delete all cookies:
+```
+var cookies = cookieManager();
+cookies.delete("*");
+cookies.deleteAll("*");
+```
+
