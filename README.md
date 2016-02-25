@@ -3,16 +3,16 @@ A small js lib to make managing browsers cookies less of a pain.
 
 #How to use
 To start, simply create a `cookieManager` object like:
-```
+```javascript
 var cookies = cookieManager();
 ```
 You can now manage the cookies with this `cookies` object.
-```
+```javascript
 var cookies = cookieManager();
 cookies.set("Name","Value","Expiration date with a Date() (leave blank for session variable)","custom path","secure");
 ```
 Or, a real world example:
-```
+```javascript
 cookies.set("user","Jim","","","true");
 ```
 The above would create a cookie called `user`, with the value `Jim`. It would be a session variable, with the current document path, and would only be sent over a secure(`HTTPS`) connection.
@@ -32,13 +32,13 @@ There are 7 different methods in cookieManager.
 
 #Example:
 Set and get the value of a cookie:
-```
+```javascript
 var cookies = cookieManager();
 cookies.set("opinion","This is cool!");
 var results = cookies.get("opinion");
 ```
 Update cookie:
-```
+```javascript
 var cookies = cookieManager();
 cookies.set("opinion","This is cool!");
 var results1 = cookies.get("opinion");
@@ -46,20 +46,33 @@ cookies.set("opinion","Even cooler!");
 var results2 = cookies.get("opinion");
 ```
 Get all cookies:
-```
+```javascript
 var cookies = cookieManager();
 var results1 = cookies.get("*");
 var results2 = cookies.getAll();
 ```
 Delete cookie:
-```
+```javascript
 var cookies = cookieManager();
 var results1 = cookies.delete("myCookie");
 ```
 Delete all cookies:
-```
+```javascript
 var cookies = cookieManager();
 cookies.delete("*");
 cookies.deleteAll("*");
 ```
-
+Has cookie:
+```javascript
+var cookies = cookieManager();
+if(cookies.has("myCookie") alert("We found the cookie!");
+```
+Cookies enabled:
+```javascript
+var cookies = cookieManager();
+cookies.enabled(function(){
+  //Cookies are enabled
+});
+if(cookies.enabled()) ;//cookies are enabled
+else ;//cookies are not enabled
+```
