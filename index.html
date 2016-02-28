@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cookiemanager by Jacob-Gray</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Cookiemanager</h1>
+        <p>A small js lib to make managing browsers cookies less of a pain.</p>
+
+        <p class="view"><a href="https://github.com/Jacob-Gray/cookieManager">View the Project on GitHub <small>Jacob-Gray/cookieManager</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Jacob-Gray/cookieManager/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Jacob-Gray/cookieManager/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Jacob-Gray/cookieManager">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="cookiemanagerjs" class="anchor" href="#cookiemanagerjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>cookieManager.js</h1>
+
+<p>A small js lib to make managing browsers cookies less of a pain. </p>
+
+<h1>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h1>
+
+<p>To start, simply create a <code>cookieManager</code> object like:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();</pre></div>
+
+<p>You can now manage the cookies with this <code>cookies</code> object.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>Name<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Value<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Expiration date with a Date() (leave blank for session variable)<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>custom path<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>secure<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Or, a real world example:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Jim<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>The above would create a cookie called <code>user</code>, with the value <code>Jim</code>. It would be a session variable, with the current document path, and would only be sent over a secure(<code>HTTPS</code>) connection.</p>
+
+<h1>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h1>
+
+<p>There are 7 different methods in cookieManager.</p>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use</th>
+<th>Parameters</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>set()</code></td>
+<td>Set or update a cookie</td>
+<td>Name,Value,Expiration,Path,Secure</td>
+<td>Can have other methods chained to it eg <code>c.set(...).getAll()</code>
+</td>
+</tr>
+<tr>
+<td><code>get()</code></td>
+<td>Get the value of a cookie</td>
+<td>Name</td>
+<td>If the Name parameter is set to <code>*</code>, it will return an array with all cookies.</td>
+</tr>
+<tr>
+<td><code>getAll()</code></td>
+<td>Get the value of all cookies</td>
+<td></td>
+<td>Is the same as <code>get("*")</code>
+</td>
+</tr>
+<tr>
+<td><code>has()</code></td>
+<td>Checks if a cookie exists</td>
+<td>Name</td>
+<td>Returns <code>true/false</code>
+</td>
+</tr>
+<tr>
+<td><code>delete()</code></td>
+<td>Deletes a cookie</td>
+<td>Name</td>
+<td>Can be chained. If name is <code>*</code> will delete all.</td>
+</tr>
+<tr>
+<td><code>deleteAll()</code></td>
+<td>Deletes all cookies.</td>
+<td></td>
+<td>Is the same as <code>delete("*")</code>
+</td>
+</tr>
+<tr>
+<td><code>enabled()</code></td>
+<td>Checks if cookies are enabled</td>
+<td>Function</td>
+<td>Returns <code>true/false</code>. If a function is inputted, it runs if true.</td>
+</tr>
+</tbody>
+</table>
+
+<h1>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example:</h1>
+
+<p>Set and get the value of a cookie:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>This is cool!<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> results <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Update cookie:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>This is cool!<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> results1 <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>);
+<span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Even cooler!<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> results2 <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">"</span>opinion<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Get all cookies:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-k">var</span> results1 <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> results2 <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">getAll</span>();</pre></div>
+
+<p>Delete cookie:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-k">var</span> results1 <span class="pl-k">=</span> <span class="pl-smi">cookies</span>.<span class="pl-en">delete</span>(<span class="pl-s"><span class="pl-pds">"</span>myCookie<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Delete all cookies:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">delete</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+<span class="pl-smi">cookies</span>.<span class="pl-en">deleteAll</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Has cookie:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-k">if</span>(<span class="pl-smi">cookies</span>.<span class="pl-en">has</span>(<span class="pl-s"><span class="pl-pds">"</span>myCookie<span class="pl-pds">"</span></span>)) <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>We found the cookie!<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Cookies enabled:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">enabled</span>(<span class="pl-k">function</span>(){
+  <span class="pl-c">//Cookies are enabled</span>
+});
+<span class="pl-k">if</span>(<span class="pl-smi">cookies</span>.<span class="pl-en">enabled</span>()) ;<span class="pl-c">//cookies are enabled</span>
+<span class="pl-k">else</span> ;<span class="pl-c">//cookies are not enabled</span></pre></div>
+
+<p>Set cookie with custom path(Note that if you set a cookie with a custom path, you won't be able to get it's value unless you are at the path or one of it's children):</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">set</span>(<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>custom path!<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>/customPath<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Delete cookie with custom path:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cookies <span class="pl-k">=</span> <span class="pl-en">cookieManager</span>();
+<span class="pl-smi">cookies</span>.<span class="pl-en">delete</span>(<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>/customPath<span class="pl-pds">"</span></span>);</pre></div>
+
+<p><code>deleteAll()</code> will not delete custom path cookies.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Jacob-Gray">Jacob-Gray</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
