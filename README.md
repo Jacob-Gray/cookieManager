@@ -1,6 +1,8 @@
 #cookieManager.js
 A small js lib to make managing browsers cookies less of a pain. 
 
+http://jacob-gray.github.io/cookieManager
+
 #How to use
 To start, simply create a `cookieManager` object like:
 ```javascript
